@@ -1,0 +1,798 @@
+import { Product, Coupon, User, Order, Review, NotificationItem } from '../types';
+
+export const HERO_BANNER_IMAGE = '/src/assets/images/hero_shopsphere_banner_1794241400435.jpg';
+export const EASTERN_COUTURE_IMAGE = '/src/assets/images/product_eastern_couture_1794241400091.jpg';
+export const BEAUTY_SKINCARE_IMAGE = '/src/assets/images/product_beauty_skincare_1794241400871.jpg';
+export const SMARTWATCH_AUDIO_IMAGE = '/src/assets/images/product_smartwatch_audio_1794241401760.jpg';
+
+export const INITIAL_PRODUCTS: Product[] = [
+  // 1. Beauty & Cosmetics
+  {
+    id: 'prod-bc-1',
+    sku: 'BC-AUR-01',
+    name: 'Aurora Rose Botanical Clarifying Toner & Serum Duo',
+    category: 'Beauty & Cosmetics',
+    subcategory: 'Skincare',
+    brand: 'Botanica Organics',
+    description: 'Enriched with organic Kashmiri rose water, niacinamide, and bakuchiol oil. Gently hydrates, minimizes pores, and promotes a luminous Pakistani bridal glow.',
+    originalPrice: 4200,
+    discountedPrice: 3350,
+    discountPercentage: 20,
+    stock: 28,
+    rating: 4.9,
+    reviewCount: 42,
+    image: BEAUTY_SKINCARE_IMAGE,
+    gallery: [
+      BEAUTY_SKINCARE_IMAGE,
+      'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1608248597359-543594e9f7eb?auto=format&fit=crop&w=800&q=80'
+    ],
+    isFeatured: true,
+    isBestSeller: true,
+    specifications: {
+      'Volume': '150ml Toner + 30ml Serum',
+      'Skin Type': 'All Skin Types (Tested on South Asian Skin)',
+      'Key Ingredients': 'Organic Rosewater, Bakuchiol, Hyaluronic Acid',
+      'Origin': 'Lahore, Pakistan'
+    },
+    createdAt: '2026-10-15T10:00:00.000Z'
+  },
+  {
+    id: 'prod-bc-2',
+    sku: 'BC-OUD-02',
+    name: 'Royal Amber Oud & Velvet Rose Artisan Extrait De Parfum',
+    category: 'Beauty & Cosmetics',
+    subcategory: 'Perfumes',
+    brand: 'Junaid Jamshed Fragrances',
+    description: 'A decadent Eastern blend of Taif roses, smokey Cambodian oud, spiced saffron, and golden amber with 24-hour long-lasting sillage.',
+    originalPrice: 7500,
+    discountedPrice: 5999,
+    discountPercentage: 20,
+    stock: 14,
+    rating: 4.8,
+    reviewCount: 88,
+    image: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=800&q=80'
+    ],
+    isFeatured: true,
+    specifications: {
+      'Fragrance Family': 'Oriental Floral Woody',
+      'Concentration': 'Extrait de Parfum (30% Oil)',
+      'Volume': '100ml / 3.4 fl oz',
+      'Duration': 'Up to 24 Hours'
+    },
+    createdAt: '2026-10-16T11:00:00.000Z'
+  },
+  {
+    id: 'prod-bc-3',
+    sku: 'BC-MAK-03',
+    name: 'Festive Velvet Matte Lip & Cheek Stain Palette',
+    category: 'Beauty & Cosmetics',
+    subcategory: 'Makeup',
+    brand: 'Medora London',
+    description: 'Weightless, non-drying multi-use cream formula in rich berry, terracotta, and soft dusty rose shades tailored for Asian undertones.',
+    originalPrice: 2200,
+    discountedPrice: 1750,
+    discountPercentage: 20,
+    stock: 45,
+    rating: 4.7,
+    reviewCount: 31,
+    image: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=800&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=800&q=80'
+    ],
+    isNewArrival: true,
+    specifications: {
+      'Finish': 'Velvet Matte',
+      'Shades Included': 'Gulabi Rose, Khoya Berry, Terracotta Jam',
+      'Cruelty Free': 'Yes, 100% Halal Certified'
+    },
+    createdAt: '2026-10-20T09:30:00.000Z'
+  },
+
+  // 2. Women's Clothing
+  {
+    id: 'prod-wc-1',
+    sku: 'WC-ZAR-01',
+    name: 'Zariyah Embroidered Plum & Blush Lawn Luxury 3-Piece',
+    category: "Women's Clothing",
+    subcategory: 'Eastern Wear',
+    brand: 'Sapphire Pret',
+    description: 'Pure pima lawn kameez with intricate tilla thread embroidery on neckline and border, accompanied by pure organza embroidered dupatta and dyed cambric trousers.',
+    originalPrice: 14500,
+    discountedPrice: 11990,
+    discountPercentage: 17,
+    stock: 9,
+    rating: 5.0,
+    reviewCount: 64,
+    image: EASTERN_COUTURE_IMAGE,
+    gallery: [
+      EASTERN_COUTURE_IMAGE,
+      'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80'
+    ],
+    isFeatured: true,
+    isBestSeller: true,
+    sizes: ['XS', 'S', 'M', 'L', 'XL', 'Unstitched'],
+    colors: ['Plum & Rose Gold', 'Emerald Green', 'Deep Teal'],
+    specifications: {
+      'Shirt Fabric': '100% Pima Lawn with Tilla Work',
+      'Dupatta Fabric': 'Digital Embroidered Sheer Organza',
+      'Trouser Fabric': 'Solid Cambric Cotton',
+      'Care': 'Dry Clean Recommended'
+    },
+    createdAt: '2026-10-18T14:00:00.000Z'
+  },
+  {
+    id: 'prod-wc-2',
+    sku: 'WC-ABA-02',
+    name: 'Midnight Black Nida Dubai Cut Designer Abaya',
+    category: "Women's Clothing",
+    subcategory: 'Abayas',
+    brand: 'Hijab Al-Noor',
+    description: 'Flowing premium Korean Nida fabric abaya with subtle pleating, concealed magnetic snap buttons, and matching chiffon Sheila hijab.',
+    originalPrice: 8500,
+    discountedPrice: 6800,
+    discountPercentage: 20,
+    stock: 19,
+    rating: 4.9,
+    reviewCount: 52,
+    image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80'
+    ],
+    sizes: ['52 (Small)', '54 (Medium)', '56 (Large)', '58 (XL)'],
+    specifications: {
+      'Fabric': 'Premium Korean Nida (Wrinkle Resistant)',
+      'Style': 'Front Open with Inner Snaps',
+      'Includes': 'Abaya + Matching Chiffon Sheila'
+    },
+    createdAt: '2026-10-19T12:00:00.000Z'
+  },
+  {
+    id: 'prod-wc-3',
+    sku: 'WC-CAS-03',
+    name: 'Block-Print Bohemian Indigo Cotton Tunic Kurti',
+    category: "Women's Clothing",
+    subcategory: 'Casual Wear',
+    brand: 'Generation Crafts',
+    description: 'Handcrafted Ajrak inspired hand block printed flared kurti with wooden button detailing and mandarin collar.',
+    originalPrice: 3800,
+    discountedPrice: 2950,
+    discountPercentage: 22,
+    stock: 35,
+    rating: 4.6,
+    reviewCount: 29,
+    image: 'https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?auto=format&fit=crop&w=800&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?auto=format&fit=crop&w=800&q=80'
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    specifications: {
+      'Fabric': '100% Breathable Lawn Cotton',
+      'Technique': 'Hand Block Print',
+      'Sleeves': 'Full Sleeves with Cuffed Hem'
+    },
+    createdAt: '2026-10-21T08:00:00.000Z'
+  },
+
+  // 3. Men's Clothing
+  {
+    id: 'prod-mc-1',
+    sku: 'MC-KHA-01',
+    name: 'Heritage Egyptian Giza Cotton Shalwar Kameez Suit',
+    category: "Men's Clothing",
+    subcategory: 'Traditional Wear',
+    brand: 'J. Junaid Jamshed',
+    description: 'Woven with extra-long staple Egyptian Giza cotton for a crisp, wrinkle-free fall. Features a classic band collar and engraved bone buttons.',
+    originalPrice: 9200,
+    discountedPrice: 7490,
+    discountPercentage: 18,
+    stock: 22,
+    rating: 4.9,
+    reviewCount: 73,
+    image: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80'
+    ],
+    isFeatured: true,
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    colors: ['Off-White', 'Charcoal Slate', 'Navy Blue', 'Olive Khaki'],
+    specifications: {
+      'Fabric': '100% Giza Egyptian Cotton',
+      'Collar': 'Stiffened Band Collar',
+      'Cuff': 'Single Button Convertible',
+      'Pockets': 'Chest Pocket & Two Side Pockets'
+    },
+    createdAt: '2026-10-14T09:00:00.000Z'
+  },
+  {
+    id: 'prod-mc-2',
+    sku: 'MC-SHI-02',
+    name: 'Smart-Fit Oxford Cotton Formal Button-Down Shirt',
+    category: "Men's Clothing",
+    subcategory: 'Shirts',
+    brand: 'Uniworth Dress Co.',
+    description: 'Crisp pinpoint Oxford cotton shirt tailored for business and formal evening wear. Breathable and comfortable in humid climates.',
+    originalPrice: 4500,
+    discountedPrice: 3600,
+    discountPercentage: 20,
+    stock: 30,
+    rating: 4.7,
+    reviewCount: 41,
+    image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80'
+    ],
+    sizes: ['38 (15")', '40 (15.5")', '42 (16")', '44 (16.5")'],
+    colors: ['Sky Blue', 'Crisp White', 'Soft Pink'],
+    specifications: {
+      'Weave': 'Pinpoint Oxford',
+      'Fit': 'Contemporary Slim Fit',
+      'Care': 'Machine Wash Warm, Iron Warm'
+    },
+    createdAt: '2026-10-17T11:00:00.000Z'
+  },
+
+  // 4. Shoes
+  {
+    id: 'prod-sh-1',
+    sku: 'SH-KHP-01',
+    name: 'Handcrafted Peshawari Chappal in Pure Cowhide Leather',
+    category: 'Shoes',
+    subcategory: 'Sandals',
+    brand: 'Charsadda Heritage',
+    description: 'Authentic Kaptaan-style Peshawari sandal handcrafted by master artisans in Khyber Pakhtunkhwa. Double tire-sole grip with cushioned arch support.',
+    originalPrice: 5500,
+    discountedPrice: 4400,
+    discountPercentage: 20,
+    stock: 18,
+    rating: 4.9,
+    reviewCount: 95,
+    image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=800&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=800&q=80'
+    ],
+    isBestSeller: true,
+    sizes: ['40 (7)', '41 (8)', '42 (9)', '43 (10)', '44 (11)'],
+    colors: ['Mustard Mustard', 'Oxblood Cherry', 'Jet Black'],
+    specifications: {
+      'Upper': '100% Genuine Full-Grain Cow Leather',
+      'Sole': 'Recycled Aeroplane Tire Rubber',
+      'Stitching': 'Heavy Waxed Hand Thread'
+    },
+    createdAt: '2026-10-11T13:00:00.000Z'
+  },
+  {
+    id: 'prod-sh-2',
+    sku: 'SH-SNK-02',
+    name: 'AeroCloud Ultra-Responsive Performance Sneakers',
+    category: 'Shoes',
+    subcategory: 'Sneakers',
+    brand: 'Servis Cheetah',
+    description: 'Engineered mesh running shoes with responsive nitrogen-infused foam cushioning and anti-slip rubber pods for jogging, gym, and street style.',
+    originalPrice: 6800,
+    discountedPrice: 5290,
+    discountPercentage: 22,
+    stock: 25,
+    rating: 4.8,
+    reviewCount: 38,
+    image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80'
+    ],
+    sizes: ['39', '40', '41', '42', '43', '44'],
+    colors: ['Solar Red & Black', 'Triple White', 'Volt Lime'],
+    specifications: {
+      'Weight': '240g per shoe',
+      'Midsole': 'Nitro-Foam High Rebound',
+      'Closure': 'Lace-Up with TPU Heel Lock'
+    },
+    createdAt: '2026-10-13T16:00:00.000Z'
+  },
+
+  // 5. Bags
+  {
+    id: 'prod-bg-1',
+    sku: 'BG-TOT-01',
+    name: 'Signature Monogram Structured Leather Tote Bag',
+    category: 'Bags',
+    subcategory: 'Handbags',
+    brand: 'Hub Leather Pakistan',
+    description: 'Full-grain Italian finished leather bag with dedicated 14" padded laptop sleeve, gold-tone hardware, and detachable shoulder crossbody strap.',
+    originalPrice: 12500,
+    discountedPrice: 9990,
+    discountPercentage: 20,
+    stock: 12,
+    rating: 4.9,
+    reviewCount: 47,
+    image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80'
+    ],
+    isFeatured: true,
+    colors: ['Cognac Tan', 'Midnight Black', 'Burgundy Wine'],
+    specifications: {
+      'Dimensions': '38cm x 28cm x 14cm',
+      'Laptop Compartment': 'Fits up to 14-inch MacBook/Laptop',
+      'Lining': 'Suede Microfiber'
+    },
+    createdAt: '2026-10-16T15:00:00.000Z'
+  },
+  {
+    id: 'prod-bg-2',
+    sku: 'BG-BAK-02',
+    name: 'Nomad Water-Resistant Urban Travel Backpack',
+    category: 'Bags',
+    subcategory: 'Backpacks',
+    brand: 'Borjan Travel Tech',
+    description: '30-liter commuter backpack with TSA-friendly flat opening, anti-theft hidden pocket, USB charging port, and water-repellent ballistic nylon.',
+    originalPrice: 7200,
+    discountedPrice: 5750,
+    discountPercentage: 20,
+    stock: 26,
+    rating: 4.7,
+    reviewCount: 34,
+    image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80'
+    ],
+    specifications: {
+      'Capacity': '30 Liters',
+      'Material': '1680D Ballistic Cordura Nylon',
+      'Laptop Compartment': 'Up to 16-inch laptops'
+    },
+    createdAt: '2026-10-22T08:00:00.000Z'
+  },
+
+  // 6. Electronics
+  {
+    id: 'prod-el-1',
+    sku: 'EL-WAT-01',
+    name: 'Apex Ultra Pro Smartwatch with ANC Earbuds Combo',
+    category: 'Electronics',
+    subcategory: 'Smart Watches',
+    brand: 'Audionic Pakistan',
+    description: '1.96-inch HD AMOLED Always-On display, Bluetooth calling with Pakistani PTCL/Jazz SIM pairing, SpO2 & Heart Rate tracking, plus IP68 waterproof rating.',
+    originalPrice: 11999,
+    discountedPrice: 8499,
+    discountPercentage: 29,
+    stock: 16,
+    rating: 4.8,
+    reviewCount: 114,
+    image: SMARTWATCH_AUDIO_IMAGE,
+    gallery: [
+      SMARTWATCH_AUDIO_IMAGE,
+      'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=800&q=80'
+    ],
+    isFeatured: true,
+    isBestSeller: true,
+    colors: ['Titanium Grey', 'Obsidian Black', 'Rose Champagne'],
+    specifications: {
+      'Display': '1.96" Super AMOLED 410x502 resolution',
+      'Battery Life': 'Up to 7 Days Normal Use, 25 Days Standby',
+      'Connectivity': 'Bluetooth 5.3 Low Energy',
+      'Sensors': 'Optical Heart Rate, Blood Oxygen, Pedometer',
+      'Warranty': '1 Year Official Audionic Pakistan Warranty'
+    },
+    createdAt: '2026-10-10T12:00:00.000Z'
+  },
+  {
+    id: 'prod-el-2',
+    sku: 'EL-AUD-02',
+    name: 'BassDrop 360 Wireless Portable Bluetooth Speaker',
+    category: 'Electronics',
+    subcategory: 'Speakers',
+    brand: 'Ronin Wireless',
+    description: '30W stereo audio with dual passive radiators, 18-hour continuous battery life, RGB beat-sync ring light, and IPX7 rugged waterproof chassis.',
+    originalPrice: 8000,
+    discountedPrice: 6200,
+    discountPercentage: 22,
+    stock: 20,
+    rating: 4.7,
+    reviewCount: 68,
+    image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=800&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=800&q=80'
+    ],
+    specifications: {
+      'Power Output': '30W RMS',
+      'Playtime': '18 Hours',
+      'Waterproof': 'IPX7 Submersible',
+      'Warranty': '1 Year Local Warranty'
+    },
+    createdAt: '2026-10-18T16:00:00.000Z'
+  },
+
+  // 7. Home & Living
+  {
+    id: 'prod-hl-1',
+    sku: 'HL-LMP-01',
+    name: 'Hand-Carved Himalayan Pink Crystal Salt Lamp with Dimmer',
+    category: 'Home & Living',
+    subcategory: 'Home Decor',
+    brand: 'Khewra Mineral Craft',
+    description: 'Authentic 100% natural salt rock mined directly from Khewra Salt Mines in Punjab. Emits negative ions, purifying air and producing a warm tranquil glow.',
+    originalPrice: 3200,
+    discountedPrice: 2490,
+    discountPercentage: 22,
+    stock: 32,
+    rating: 4.9,
+    reviewCount: 156,
+    image: 'https://images.unsplash.com/photo-1517991104123-1d56a6e81ed9?auto=format&fit=crop&w=800&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1517991104123-1d56a6e81ed9?auto=format&fit=crop&w=800&q=80'
+    ],
+    isFeatured: true,
+    specifications: {
+      'Weight': '3.5 kg - 4.5 kg Natural Rock',
+      'Base': 'Solid Neem Wood Base',
+      'Cord': 'UL-Certified Wire with Rotary Dimmer Switch',
+      'Bulb Included': '15W Tungsten Warm Glow'
+    },
+    createdAt: '2026-10-12T10:00:00.000Z'
+  },
+  {
+    id: 'prod-hl-2',
+    sku: 'HL-KIT-02',
+    name: 'Heritage Clay Handi & Ceramic Serving Bowl Set',
+    category: 'Home & Living',
+    subcategory: 'Kitchen Items',
+    brand: 'Gujrat Pottery Works',
+    description: 'Authentic lead-free glazed terracotta cooking handi crafted in Gujrat. Enhances the earthy aroma and flavor of Pakistani Biryani, Karahi, and Daal.',
+    originalPrice: 4800,
+    discountedPrice: 3850,
+    discountPercentage: 20,
+    stock: 15,
+    rating: 4.8,
+    reviewCount: 49,
+    image: 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=800&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=800&q=80'
+    ],
+    specifications: {
+      'Material': '100% Organic Terracotta Clay',
+      'Capacity': '2.5 Liters Handi + 2 Serving Bowls',
+      'Stove Compatibility': 'Gas Stove and Oven Safe'
+    },
+    createdAt: '2026-10-20T14:00:00.000Z'
+  },
+
+  // 8. Jewelry & Accessories
+  {
+    id: 'prod-ja-1',
+    sku: 'JA-KUN-01',
+    name: 'Royal Mughal Kundan Polki Choker & Jhumka Earring Set',
+    category: 'Jewelry & Accessories',
+    subcategory: 'Necklaces',
+    brand: 'Naurattan Heritage Jewellers',
+    description: 'Traditional 22K gold electroplated bridal choker with genuine pearls, emerald glass drops, and hand-meenakari craftsmanship on reverse.',
+    originalPrice: 15500,
+    discountedPrice: 12400,
+    discountPercentage: 20,
+    stock: 8,
+    rating: 5.0,
+    reviewCount: 39,
+    image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80'
+    ],
+    isFeatured: true,
+    isBestSeller: true,
+    specifications: {
+      'Plating': '22K Micro Gold Plating (Non-Tarnish)',
+      'Stones': 'Semi-Precious Kundan Polki & Fresh Water Pearls',
+      'Included': 'Choker Necklace + Matching Chandbali Jhumkas',
+      'Packaging': 'Velvet Gift Keepsake Box'
+    },
+    createdAt: '2026-10-15T15:00:00.000Z'
+  },
+  {
+    id: 'prod-ja-2',
+    sku: 'JA-WAT-02',
+    name: 'Gentleman Chronograph Rose Gold Mesh Wristwatch',
+    category: 'Jewelry & Accessories',
+    subcategory: 'Watches',
+    brand: 'Sveston Pakistan',
+    description: 'Precision Japanese quartz movement with active date window, sapphire-coated crystal glass, and magnetic Milanese stainless steel mesh strap.',
+    originalPrice: 8500,
+    discountedPrice: 6790,
+    discountPercentage: 20,
+    stock: 14,
+    rating: 4.8,
+    reviewCount: 76,
+    image: 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=80'
+    ],
+    specifications: {
+      'Case Diameter': '41mm',
+      'Movement': 'Japanese Miyota Quartz',
+      'Water Resistance': '30M / 3ATM',
+      'Warranty': '1 Year International Movement Warranty'
+    },
+    createdAt: '2026-10-19T10:00:00.000Z'
+  }
+];
+
+export const INITIAL_COUPONS: Coupon[] = [
+  {
+    id: 'c-welcome',
+    code: 'WELCOME10',
+    discountType: 'percentage',
+    discountValue: 10,
+    minSpend: 2000,
+    maxDiscount: 1500,
+    expiryDate: '2026-12-31',
+    usageLimit: 500,
+    usedCount: 84,
+    isActive: true,
+    description: '10% off on your first order across Pakistan (Min. Rs. 2,000)'
+  },
+  {
+    id: 'c-azadi',
+    code: 'AZADI20',
+    discountType: 'percentage',
+    discountValue: 20,
+    minSpend: 5000,
+    maxDiscount: 2500,
+    expiryDate: '2026-12-31',
+    usageLimit: 200,
+    usedCount: 47,
+    isActive: true,
+    description: 'Flat 20% discount on orders above Rs. 5,000'
+  },
+  {
+    id: 'c-freeship',
+    code: 'FREESHIP',
+    discountType: 'fixed',
+    discountValue: 250,
+    minSpend: 2500,
+    expiryDate: '2026-12-31',
+    usageLimit: 1000,
+    usedCount: 312,
+    isActive: true,
+    description: 'Zero delivery fee on orders over Rs. 2,500'
+  }
+];
+
+export const INITIAL_USERS: User[] = [
+  {
+    id: 'user-admin-1',
+    name: 'Shopsphere Store Owner',
+    email: 'admin@shopsphere.pk',
+    phone: '0300-1234567',
+    role: 'admin',
+    city: 'Lahore',
+    createdAt: '2026-01-01T00:00:00.000Z'
+  },
+  {
+    id: 'user-customer-1',
+    name: 'Hafsa Khan',
+    email: 'hafsa.pk.25@gmail.com',
+    phone: '0321-7654321',
+    role: 'customer',
+    address: 'House #42, Street 8, Block F, DHA Phase 5',
+    city: 'Lahore',
+    postalCode: '54792',
+    createdAt: '2026-09-01T12:00:00.000Z',
+    savedAddresses: [
+      {
+        fullName: 'Hafsa Khan',
+        phone: '0321-7654321',
+        email: 'hafsa.pk.25@gmail.com',
+        address: 'House #42, Street 8, Block F, DHA Phase 5',
+        city: 'Lahore',
+        postalCode: '54792',
+        notes: 'Ring bell at side gate'
+      },
+      {
+        fullName: 'Hafsa Khan (Office)',
+        phone: '0321-7654321',
+        email: 'hafsa.pk.25@gmail.com',
+        address: 'Suite 404, Tricon Corporate Centre, Gulberg III',
+        city: 'Lahore',
+        postalCode: '54660',
+        notes: 'Hand over to reception'
+      }
+    ]
+  }
+];
+
+export const INITIAL_ORDERS: Order[] = [
+  {
+    id: 'ord-1001',
+    orderNumber: 'PK-918241',
+    userId: 'user-customer-1',
+    customerName: 'Hafsa Khan',
+    customerEmail: 'hafsa.pk.25@gmail.com',
+    customerPhone: '0321-7654321',
+    shippingAddress: {
+      fullName: 'Hafsa Khan',
+      phone: '0321-7654321',
+      email: 'hafsa.pk.25@gmail.com',
+      address: 'House #42, Street 8, Block F, DHA Phase 5',
+      city: 'Lahore',
+      postalCode: '54792'
+    },
+    items: [
+      {
+        productId: 'prod-wc-1',
+        name: 'Zariyah Embroidered Plum & Blush Lawn Luxury 3-Piece',
+        image: EASTERN_COUTURE_IMAGE,
+        price: 11990,
+        quantity: 1,
+        selectedSize: 'M',
+        selectedColor: 'Plum & Rose Gold',
+        total: 11990
+      },
+      {
+        productId: 'prod-bc-1',
+        name: 'Aurora Rose Botanical Clarifying Toner & Serum Duo',
+        image: BEAUTY_SKINCARE_IMAGE,
+        price: 3350,
+        quantity: 1,
+        total: 3350
+      }
+    ],
+    subtotal: 15340,
+    discountAmount: 1534,
+    couponCode: 'WELCOME10',
+    shippingFee: 0,
+    totalAmount: 13806,
+    paymentMethod: 'Cash on Delivery (COD)',
+    paymentStatus: 'Pending (COD)',
+    orderStatus: 'Shipped',
+    courierName: 'TCS Express Pakistan',
+    courierTrackingNumber: 'TCS-PK-9821447',
+    createdAt: '2026-11-06T14:32:00.000Z',
+    updatedAt: '2026-11-08T10:15:00.000Z',
+    history: [
+      { status: 'Order Placed', timestamp: '2026-11-06T14:32:00.000Z', note: 'Customer placed order via website' },
+      { status: 'Order Confirmed', timestamp: '2026-11-06T16:00:00.000Z', note: 'Phone verification confirmed by customer' },
+      { status: 'Processing', timestamp: '2026-11-07T09:00:00.000Z', note: 'Packed at Shopsphere Central Hub, Lahore' },
+      { status: 'Shipped', timestamp: '2026-11-08T10:15:00.000Z', note: 'Handed over to TCS Express with Airway Bill TCS-PK-9821447' }
+    ]
+  },
+  {
+    id: 'ord-1002',
+    orderNumber: 'PK-840192',
+    userId: 'user-customer-1',
+    customerName: 'Hafsa Khan',
+    customerEmail: 'hafsa.pk.25@gmail.com',
+    customerPhone: '0321-7654321',
+    shippingAddress: {
+      fullName: 'Hafsa Khan',
+      phone: '0321-7654321',
+      email: 'hafsa.pk.25@gmail.com',
+      address: 'House #42, Street 8, Block F, DHA Phase 5',
+      city: 'Lahore',
+      postalCode: '54792'
+    },
+    items: [
+      {
+        productId: 'prod-hl-1',
+        name: 'Hand-Carved Himalayan Pink Crystal Salt Lamp with Dimmer',
+        image: 'https://images.unsplash.com/photo-1517991104123-1d56a6e81ed9?auto=format&fit=crop&w=800&q=80',
+        price: 2490,
+        quantity: 2,
+        total: 4980
+      }
+    ],
+    subtotal: 4980,
+    discountAmount: 250,
+    couponCode: 'FREESHIP',
+    shippingFee: 0,
+    totalAmount: 4730,
+    paymentMethod: 'Easypaisa',
+    paymentStatus: 'Paid',
+    paymentReference: 'EP-TRX-88231947',
+    orderStatus: 'Delivered',
+    courierName: 'Leopards Courier',
+    courierTrackingNumber: 'LEO-7749210',
+    createdAt: '2026-10-24T11:20:00.000Z',
+    updatedAt: '2026-10-27T16:45:00.000Z',
+    history: [
+      { status: 'Order Placed', timestamp: '2026-10-24T11:20:00.000Z' },
+      { status: 'Order Confirmed', timestamp: '2026-10-24T12:00:00.000Z' },
+      { status: 'Processing', timestamp: '2026-10-25T10:00:00.000Z' },
+      { status: 'Shipped', timestamp: '2026-10-26T08:30:00.000Z' },
+      { status: 'Out for Delivery', timestamp: '2026-10-27T11:00:00.000Z' },
+      { status: 'Delivered', timestamp: '2026-10-27T16:45:00.000Z', note: 'Received by customer with signature' }
+    ]
+  }
+];
+
+export const INITIAL_REVIEWS: Review[] = [
+  {
+    id: 'rev-1',
+    productId: 'prod-wc-1',
+    userId: 'user-customer-1',
+    userName: 'Hafsa Khan',
+    userCity: 'Lahore',
+    rating: 5,
+    comment: 'SubhanAllah the embroidery quality is breathtaking! The fabric is soft and the organza dupatta has very neat tilla borders. Delivery arrived in 2 days in Lahore.',
+    date: '2026-10-28',
+    verifiedPurchase: true,
+    approved: true
+  },
+  {
+    id: 'rev-2',
+    productId: 'prod-bc-1',
+    userId: 'user-2',
+    userName: 'Ayesha Malik',
+    userCity: 'Karachi',
+    rating: 5,
+    comment: 'The rose aroma is so calming! My skin feels super hydrated even in Karachi dry AC weather. Ordered my second bottle.',
+    date: '2026-10-29',
+    verifiedPurchase: true,
+    approved: true
+  },
+  {
+    id: 'rev-3',
+    productId: 'prod-el-1',
+    userId: 'user-3',
+    userName: 'Bilal Tariq',
+    userCity: 'Islamabad',
+    rating: 5,
+    comment: 'Battery lasted 6 days on a single charge. Bluetooth call sound is loud and clear. Great Pakistani product!',
+    date: '2026-11-01',
+    verifiedPurchase: true,
+    approved: true
+  }
+];
+
+export const INITIAL_NOTIFICATIONS: NotificationItem[] = [
+  {
+    id: 'notif-1',
+    userId: 'all',
+    title: 'Grand Festive Sale is Live!',
+    message: 'Enjoy up to 30% off across Beauty, Eastern Fashion, and Home Living. Use code WELCOME10 for an extra 10% discount.',
+    type: 'promo',
+    isRead: false,
+    createdAt: '2026-11-08T08:00:00.000Z'
+  },
+  {
+    id: 'notif-2',
+    userId: 'user-customer-1',
+    title: 'Order PK-918241 Shipped!',
+    message: 'Your order has been dispatched with TCS Express tracking number TCS-PK-9821447. Delivery expected in 24-48 hours.',
+    type: 'order',
+    isRead: false,
+    createdAt: '2026-11-08T10:15:00.000Z',
+    link: 'track-order'
+  },
+  {
+    id: 'notif-3',
+    userId: 'admin',
+    title: 'New Customer Order Received',
+    message: 'Order PK-918241 (Rs. 13,806) placed by Hafsa Khan awaiting packing.',
+    type: 'order',
+    isRead: false,
+    createdAt: '2026-11-06T14:32:00.000Z'
+  }
+];
+
+export const PAKISTAN_CITIES = [
+  'Karachi',
+  'Lahore',
+  'Islamabad',
+  'Rawalpindi',
+  'Faisalabad',
+  'Multan',
+  'Peshawar',
+  'Quetta',
+  'Sialkot',
+  'Gujranwala',
+  'Hyderabad',
+  'Bahawalpur',
+  'Sargodha',
+  'Abbottabad',
+  'Sukkur',
+  'Gujrat',
+  'Mardan',
+  'Mirpur (AJK)',
+  'Muzaffarabad',
+  'Gwadar'
+];
